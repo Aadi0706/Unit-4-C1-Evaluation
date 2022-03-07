@@ -13,7 +13,7 @@ app.get("/authors",logger,checkPermission,(req,res)=>{
     return res.send({route:req.role,permission:req.permission});
 })
 function logger(req,res,next){
-        // console.log("logger before response send");
+        
         if(req.path=="/books"){
             req.role="/books";
         }
@@ -23,6 +23,7 @@ function logger(req,res,next){
         if(req.path=="/authors"){
             req.role="/authors";
         }
+        console.log(req.path);
         next();
 }
 
